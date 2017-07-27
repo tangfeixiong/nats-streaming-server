@@ -1,0 +1,67 @@
+=== How to
+Build
+
+----
+[vagrant@localhost nats-streaming-server]$ ./build-alpine-docker.sh --push
+log/syslog
+github.com/nats-io/nats-streaming-server/vendor/github.com/nats-io/gnatsd/conf
+github.com/nats-io/nats-streaming-server/vendor/github.com/nats-io/gnatsd/logger
+github.com/nats-io/nats-streaming-server/vendor/github.com/nats-io/gnatsd/server/pse
+github.com/nats-io/nats-streaming-server/vendor/github.com/nats-io/gnatsd/util
+github.com/nats-io/nats-streaming-server/vendor/github.com/nats-io/gnatsd/vendor/github.com/nats-io/nuid
+github.com/nats-io/nats-streaming-server/vendor/github.com/nats-io/gnatsd/vendor/golang.org/x/crypto/blowfish
+github.com/nats-io/nats-streaming-server/vendor/github.com/nats-io/gnatsd/vendor/golang.org/x/crypto/bcrypt
+internal/pprof/profile
+runtime/trace
+github.com/nats-io/nats-streaming-server/vendor/github.com/nats-io/go-nats/encoders/builtin
+github.com/nats-io/nats-streaming-server/vendor/github.com/nats-io/go-nats/util
+github.com/nats-io/nats-streaming-server/vendor/github.com/nats-io/nuid
+runtime/pprof/internal/protopprof
+github.com/nats-io/nats-streaming-server/vendor/github.com/nats-io/go-nats
+runtime/pprof
+net/http/pprof
+github.com/nats-io/nats-streaming-server/vendor/github.com/nats-io/gnatsd/server
+github.com/nats-io/nats-streaming-server/vendor/github.com/gogo/protobuf/proto
+github.com/nats-io/nats-streaming-server/logger
+github.com/nats-io/nats-streaming-server/util
+github.com/nats-io/nats-streaming-server/vendor/github.com/gogo/protobuf/protoc-gen-gogo/descriptor
+github.com/nats-io/nats-streaming-server/vendor/github.com/gogo/protobuf/gogoproto
+github.com/nats-io/nats-streaming-server/vendor/github.com/nats-io/go-nats-streaming/pb
+github.com/nats-io/nats-streaming-server/spb
+github.com/nats-io/nats-streaming-server/stores
+github.com/nats-io/nats-streaming-server/server
+github.com/nats-io/nats-streaming-server
+Sending build context to Docker daemon 12.83 MB
+Step 1 : FROM gliderlabs/alpine
+ ---> 057c472a5d84
+Step 2 : LABEL maintainer "tangfeixiong <tangfx128@gmail.com>" name "nats-steaming-server" project "https://github.com/tangfeixiong/nats-streaming-server" community "https://github.com/nats-io/nats-streaming-server"
+ ---> Using cache
+ ---> 9e2e3e998b01
+Step 3 : RUN apk add --update bash ca-certificates libc6-compat && rm -rf /var/cache/apk/*
+ ---> Using cache
+ ---> 059bd53f81da
+Step 4 : ADD nats-streaming-server /
+ ---> 30da81fc4b89
+Removing intermediate container c58227ae3a62
+Step 5 : EXPOSE 4222 8222
+ ---> Running in 65dcfd79998d
+ ---> 94d685ceb8e9
+Removing intermediate container 65dcfd79998d
+Step 6 : CMD /nats-streaming-server -SDV -DV
+ ---> Running in d2d5659c6e58
+ ---> 111e86ae3beb
+Removing intermediate container d2d5659c6e58
+Successfully built 111e86ae3beb
+The push refers to a repository [docker.io/tangfeixiong/nats-streaming-server]
+9c088046e7cd: Pushed 
+1101ee75c1ad: Pushed 
+5f70bf18a086: Mounted from gliderlabs/alpine 
+64757ea28b1f: Mounted from gliderlabs/alpine 
+latest: digest: sha256:4e4b0c31589c59e284058ae50e5eafde6481c6e45e2ca5ae2848f157a75204a2 size: 5310
+----
+
+Ship & Run
+
+----
+TBC
+----

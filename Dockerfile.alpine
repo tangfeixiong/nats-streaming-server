@@ -1,0 +1,14 @@
+FROM gliderlabs/alpine
+# MAINTAINER tangfeixiong <fxtang@qingyuanos.com>
+LABEL maintainer="tangfeixiong <tangfx128@gmail.com>" \
+    name="nats-steaming-server" \
+    project="https://github.com/tangfeixiong/nats-streaming-server" \
+    community="https://github.com/nats-io/nats-streaming-server"
+
+RUN apk add --update bash ca-certificates libc6-compat && rm -rf /var/cache/apk/*
+
+ADD nats-streaming-server /
+
+EXPOSE 4222 8222
+#ENTRYPOINT ["nats-streaming-server"]
+CMD ["/nats-streaming-server", "-SDV", "-DV"]
